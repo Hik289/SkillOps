@@ -1,0 +1,17 @@
+{
+  "skill_id": "sk_008_fetch_keys",
+  "name": "fetch::keys",
+  "domain_type": "fetch_object",
+  "contract": {
+    "precondition": {"object": "keys"},
+    "operation": [
+      {"name": "GotoLocation", "args": ["{object}"]},
+      {"name": "PickupObject", "args": ["{object}"]}
+    ],
+    "artifact": {"holding": "{object}", "task_completed": "fetch_object"},
+    "validator": ["contains_action:PickupObject", "arg_in_plan:object"],
+    "failure_modes": []
+  },
+  "is_synthetic": false,
+  "metadata": {"complexity": "simple"}
+}

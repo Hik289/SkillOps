@@ -1,0 +1,26 @@
+{
+  "skill_id": "sk_004_clean_then_place_apple",
+  "name": "clean_then_place::apple->fridge",
+  "domain_type": "clean_then_place",
+  "contract": {
+    "precondition": {"object": "apple", "parent": "fridge"},
+    "operation": [
+      {"name": "GotoLocation", "args": ["{object}"]},
+      {"name": "PickupObject", "args": ["{object}"]},
+      {"name": "GotoLocation", "args": ["sink"]},
+      {"name": "CleanObject", "args": ["{object}"]},
+      {"name": "GotoLocation", "args": ["{parent}"]},
+      {"name": "PutObject", "args": ["{object}", "{parent}"]}
+    ],
+    "artifact": {"object_at": "fridge", "object_state": "clean", "task_completed": "clean_then_place"},
+    "validator": [
+      "contains_action:CleanObject",
+      "contains_action:PutObject",
+      "arg_in_plan:object",
+      "arg_in_plan:parent"
+    ],
+    "failure_modes": ["MissingClean", "WrongOrder"]
+  },
+  "is_synthetic": false,
+  "metadata": {"complexity": "compound"}
+}

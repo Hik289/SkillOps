@@ -1,0 +1,19 @@
+{
+  "skill_id": "sk_003_place_bowl_table",
+  "name": "place::bowl->table",
+  "domain_type": "place_in_container",
+  "contract": {
+    "precondition": {"object": "bowl", "parent": "table"},
+    "operation": [
+      {"name": "GotoLocation", "args": ["{object}"]},
+      {"name": "PickupObject", "args": ["{object}"]},
+      {"name": "GotoLocation", "args": ["{parent}"]},
+      {"name": "PutObject", "args": ["{object}", "{parent}"]}
+    ],
+    "artifact": {"object_at": "table", "task_completed": "place_in_container"},
+    "validator": ["contains_action:PutObject", "arg_in_plan:object", "arg_in_plan:parent"],
+    "failure_modes": []
+  },
+  "is_synthetic": false,
+  "metadata": {"complexity": "simple"}
+}

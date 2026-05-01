@@ -1,0 +1,21 @@
+{
+  "skill_id": "sk_011_synthetic_redundant_apple",
+  "name": "place::apple->fridge::clone",
+  "domain_type": "place_in_container",
+  "contract": {
+    "precondition": {"object": "apple", "parent": "fridge"},
+    "operation": [
+      {"name": "GotoLocation", "args": ["{object}"]},
+      {"name": "PickupObject", "args": ["{object}"]},
+      {"name": "GotoLocation", "args": ["{parent}"]},
+      {"name": "PutObject", "args": ["{object}", "{parent}"]}
+    ],
+    "artifact": {"object_at": "fridge", "task_completed": "place_in_container"},
+    "validator": [],
+    "failure_modes": []
+  },
+  "is_synthetic": true,
+  "parent_skill_id": "sk_001_place_apple_fridge",
+  "degradation_tag": "redundancy_clone",
+  "metadata": {"complexity": "simple", "purpose": "demonstrate merge_redundant"}
+}

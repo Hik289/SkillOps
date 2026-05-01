@@ -1,0 +1,21 @@
+{
+  "skill_id": "sk_012_synthetic_missing_validator_book",
+  "name": "place::book->shelf::no_validator",
+  "domain_type": "place_in_container",
+  "contract": {
+    "precondition": {"object": "book", "parent": "shelf"},
+    "operation": [
+      {"name": "GotoLocation", "args": ["{object}"]},
+      {"name": "PickupObject", "args": ["{object}"]},
+      {"name": "GotoLocation", "args": ["{parent}"]},
+      {"name": "PutObject", "args": ["{object}", "{parent}"]}
+    ],
+    "artifact": {"object_at": "shelf", "task_completed": "place_in_container"},
+    "validator": [],
+    "failure_modes": []
+  },
+  "is_synthetic": true,
+  "parent_skill_id": "sk_002_place_book_shelf",
+  "degradation_tag": "missing_validator",
+  "metadata": {"complexity": "simple", "purpose": "demonstrate add_validator"}
+}

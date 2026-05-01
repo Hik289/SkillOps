@@ -1,0 +1,25 @@
+{
+  "skill_id": "sk_007_cool_then_place_bottle",
+  "name": "cool_then_place::bottle->fridge",
+  "domain_type": "cool_then_place",
+  "contract": {
+    "precondition": {"object": "bottle", "parent": "fridge"},
+    "operation": [
+      {"name": "GotoLocation", "args": ["{object}"]},
+      {"name": "PickupObject", "args": ["{object}"]},
+      {"name": "GotoLocation", "args": ["{parent}"]},
+      {"name": "CoolObject", "args": ["{object}"]},
+      {"name": "PutObject", "args": ["{object}", "{parent}"]}
+    ],
+    "artifact": {"object_at": "fridge", "object_state": "cold", "task_completed": "cool_then_place"},
+    "validator": [
+      "contains_action:CoolObject",
+      "contains_action:PutObject",
+      "arg_in_plan:object",
+      "arg_in_plan:parent"
+    ],
+    "failure_modes": []
+  },
+  "is_synthetic": false,
+  "metadata": {"complexity": "compound"}
+}

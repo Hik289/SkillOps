@@ -1,0 +1,4 @@
+openai>=1.50.0
+tiktoken>=0.7.0
+pyyaml>=6.0
+pytest>=8.0

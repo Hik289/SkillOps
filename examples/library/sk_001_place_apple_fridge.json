@@ -1,0 +1,22 @@
+{
+  "skill_id": "sk_001_place_apple_fridge",
+  "name": "place::apple->fridge",
+  "domain_type": "place_in_container",
+  "contract": {
+    "precondition": {"object": "apple", "parent": "fridge"},
+    "operation": [
+      {"name": "GotoLocation", "args": ["{object}"]},
+      {"name": "PickupObject", "args": ["{object}"]},
+      {"name": "GotoLocation", "args": ["{parent}"]},
+      {"name": "PutObject", "args": ["{object}", "{parent}"]}
+    ],
+    "artifact": {"object_at": "fridge", "task_completed": "place_in_container"},
+    "validator": ["contains_action:PutObject", "arg_in_plan:object", "arg_in_plan:parent"],
+    "failure_modes": ["MissingGotoLocation", "WrongPutOrder"]
+  },
+  "is_synthetic": false,
+  "metadata": {
+    "source": "hand_curated",
+    "complexity": "simple"
+  }
+}

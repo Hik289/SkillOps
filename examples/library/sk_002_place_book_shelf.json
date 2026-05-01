@@ -1,0 +1,19 @@
+{
+  "skill_id": "sk_002_place_book_shelf",
+  "name": "place::book->shelf",
+  "domain_type": "place_in_container",
+  "contract": {
+    "precondition": {"object": "book", "parent": "shelf"},
+    "operation": [
+      {"name": "GotoLocation", "args": ["{object}"]},
+      {"name": "PickupObject", "args": ["{object}"]},
+      {"name": "GotoLocation", "args": ["{parent}"]},
+      {"name": "PutObject", "args": ["{object}", "{parent}"]}
+    ],
+    "artifact": {"object_at": "shelf", "task_completed": "place_in_container"},
+    "validator": ["contains_action:PutObject", "arg_in_plan:object", "arg_in_plan:parent"],
+    "failure_modes": ["MissingGotoLocation"]
+  },
+  "is_synthetic": false,
+  "metadata": {"complexity": "simple"}
+}
