@@ -2,8 +2,15 @@
 
 ![Project Overview](1.jpg)
 
-**A self-maintaining framework with hierarchical skill graphs for self-growing
-agent skill ecosystems.**
+**TL;DR.** In the paper, SkillOps reaches **79.5% task success on ALFWorld**,
+beating the strongest baseline by **8.8 percentage points** with **no extra
+task-time LLM calls**. SkillOps is a drop-in maintenance layer for LLM-agent
+skill libraries: it turns a growing, messy collection of skills into a typed,
+validated, graph-organized software ecosystem that existing agents can use
+without changing their code.
+
+**Paper:** [SkillOps: Managing LLM Agent Skill Libraries as Self-Maintaining
+Software Ecosystems](https://arxiv.org/abs/2605.13716) (arXiv:2605.13716).
 
 LLM agents increasingly rely on libraries of reusable *skills*. As agents
 operate long-term, those libraries grow unbounded and degrade in quality:
@@ -11,12 +18,17 @@ skills become redundant, stale, under-specified, over-specialised, or have
 missing validators and incompatible interfaces. This is the **technical-debt
 problem** for agent skill ecosystems.
 
-SkillOps treats skill maintenance as a first-class concern. Every skill is
-modelled as an explicit five-tuple `(Precondition, Operation, Artifact,
-Validator, Failure-modes)` (an *Internal Skill Graph*), and the library is a
-typed *External Graph-of-Graphs* with five edge kinds (`dependency`,
-`compatibility`, `redundancy`, `alternative`, `lineage`). On top of that,
-SkillOps provides:
+SkillOps treats skill maintenance as a first-class concern because task-time
+repair is not enough: a patched episode can still leave duplicate skills,
+missing validators, type mismatches, and stale implementations inside the
+library for future agents to retrieve again. SkillOps diagnoses and repairs
+that library-time technical debt before downstream retrieval or planning.
+
+Every skill is modelled as an explicit five-tuple `(Precondition, Operation,
+Artifact, Validator, Failure-modes)` (an *Internal Skill Graph*), and the
+library is a typed *External Graph-of-Graphs* with five edge kinds
+(`dependency`, `compatibility`, `redundancy`, `alternative`, `lineage`). On top
+of that, SkillOps provides:
 
 - a **Graph-of-Graphs Planner** that does signature lookup, inter-skill
   stitching, validator/adapter insertion and local repair,
@@ -155,11 +167,14 @@ exercised end-to-end on the bundled library.
 ## Citation
 
 ```bibtex
-@inproceedings{skillops2026,
-  title  = {SkillOps: A Self-Maintaining Framework with Hierarchical Skill Graphs for Self-Growing Agent Skill Ecosystems},
-  author = {Anonymous},
-  booktitle = {Submitted to NeurIPS 2026 (under review)},
-  year   = {2026}
+@misc{pu2026skillopsmanagingllmagent,
+  title         = {SkillOps: Managing LLM Agent Skill Libraries as Self-Maintaining Software Ecosystems},
+  author        = {Xinyuan Song and Hongji Pu and Liang Zhao},
+  year          = {2026},
+  eprint        = {2605.13716},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.SE},
+  url           = {https://arxiv.org/abs/2605.13716}
 }
 ```
 
