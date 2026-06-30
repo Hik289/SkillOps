@@ -14,9 +14,6 @@
   <a href="https://github.com/Hik289/SkillOps">
     <img src="https://img.shields.io/badge/GitHub-Code-black.svg" alt="GitHub code">
   </a>
-  <a href="#installation">
-    <img src="https://img.shields.io/badge/Install-pip%20install%20-e%20.-2ea44f.svg" alt="Install">
-  </a>
   <a href="#quick-start-5-lines">
     <img src="https://img.shields.io/badge/Quick%20Start-5%20lines-0a7ea4.svg" alt="Quick start">
   </a>
