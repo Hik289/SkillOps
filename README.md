@@ -1,13 +1,38 @@
 # SkillOps
 
+<p align="center">
+  <b>Managing LLM Agent Skill Libraries as Self-Maintaining Software Ecosystems</b>
+</p>
+
+<p align="center">
+  <a href="https://arxiv.org/abs/2605.13716">
+    <img src="https://img.shields.io/badge/arXiv-2605.13716-b31b1b.svg" alt="arXiv">
+  </a>
+  <a href="https://arxiv.org/pdf/2605.13716">
+    <img src="https://img.shields.io/badge/Paper-PDF-red.svg" alt="Paper PDF">
+  </a>
+  <a href="https://github.com/Hik289/SkillOps">
+    <img src="https://img.shields.io/badge/GitHub-Code-black.svg" alt="GitHub code">
+  </a>
+  <a href="#installation">
+    <img src="https://img.shields.io/badge/Install-pip%20install%20-e%20.-2ea44f.svg" alt="Install">
+  </a>
+  <a href="#quick-start-5-lines">
+    <img src="https://img.shields.io/badge/Quick%20Start-5%20lines-0a7ea4.svg" alt="Quick start">
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT license">
+  </a>
+</p>
+
 ![Project Overview](1.jpg)
 
-**TL;DR.** In the paper, SkillOps reaches **79.5% task success on ALFWorld**,
-beating the strongest baseline by **8.8 percentage points** with **no extra
-task-time LLM calls**. SkillOps is a drop-in maintenance layer for LLM-agent
-skill libraries: it turns a growing, messy collection of skills into a typed,
-validated, graph-organized software ecosystem that existing agents can use
-without changing their code.
+**TL;DR.** SkillOps is a drop-in maintenance layer for LLM-agent skill
+libraries. It turns a growing, messy set of reusable skills into a typed,
+validated, graph-organized software ecosystem that downstream agents can use
+without changing their task-time code. In the paper, SkillOps reaches
+**79.5% task success on ALFWorld**, beating the strongest baseline by
+**8.8 percentage points** with **no extra task-time LLM calls**.
 
 **Paper:** [SkillOps: Managing LLM Agent Skill Libraries as Self-Maintaining
 Software Ecosystems](https://arxiv.org/abs/2605.13716) (arXiv:2605.13716).
@@ -36,7 +61,8 @@ of that, SkillOps provides:
   `add_adapter`) operating on the library between runs.
 
 This repository ships the framework as a small, dependency-light Python
-package, plus a hand-curated 12-skill demo library and a one-line CLI.
+package, plus a hand-curated 12-skill demo library, smoke tests, and a one-line
+CLI.
 
 
 
@@ -45,8 +71,8 @@ package, plus a hand-curated 12-skill demo library and a one-line CLI.
 ## Installation
 
 ```bash
-git clone https://github.com/<your_org>/skillops.git
-cd skillops
+git clone git@github.com:Hik289/SkillOps.git
+cd SkillOps
 pip install -e .
 export OPENAI_API_KEY=sk-...   # only required for the LLM fallback
 ```
