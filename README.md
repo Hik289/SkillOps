@@ -59,6 +59,22 @@ CLI.
 - **Core idea.** SkillOps adds a self-maintaining maintenance layer that audits, repairs, merges, and prunes skills outside task-time execution.
 - **What is included.** A lightweight Python API, example skill library, maintenance actions, ALFWorld demo path, and tests.
 
+## Repository Structure
+
+```text
+.
+|-- skillops/                  # Library graph, planner, maintenance actions, and LLM client
+|-- examples/
+|   |-- library/               # Bundled 12-skill demonstration library
+|   `-- demo.py                # API-free end-to-end demo
+|-- tests/                     # Network-free unit and smoke tests
+|-- run_skillops.py            # CLI entry point
+|-- pyproject.toml             # Package metadata and optional dev dependencies
+|-- requirements.txt           # Minimal runtime dependency list
+|-- 1.jpg                      # Overview figure used in the README
+`-- README.md
+```
+
 ## Installation
 
 ```bash
