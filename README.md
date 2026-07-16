@@ -53,6 +53,12 @@ CLI.
 
 ---
 
+## At a Glance
+
+- **Research question.** How can LLM-agent skill libraries remain useful as tasks, contracts, and failure modes evolve?
+- **Core idea.** SkillOps adds a self-maintaining maintenance layer that audits, repairs, merges, and prunes skills outside task-time execution.
+- **What is included.** A lightweight Python API, example skill library, maintenance actions, ALFWorld demo path, and tests.
+
 ## Installation
 
 ```bash
@@ -66,7 +72,7 @@ Python 3.9+ is required.
 
 ---
 
-## Quick start (5 lines)
+## Quick Start
 
 ```python
 from skillops import SkillLibrary, GraphOfGraphsPlanner
