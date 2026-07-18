@@ -185,7 +185,7 @@ Two skills are intentionally synthetic (`sk_011`, `sk_012`) to exercise the
 
 ---
 
-## Tests
+## Reproducibility and Tests
 
 ```bash
 pip install -e .[dev]
