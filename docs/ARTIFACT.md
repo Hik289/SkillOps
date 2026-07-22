@@ -1,8 +1,8 @@
 # Artifact Guide
 
-This guide maps the public `SkillOps` repository to a reviewer-friendly artifact workflow for `SkillOps`. It is meant to make the release easier to inspect in the style of ICML, ICLR, NeurIPS, and similar artifact-review processes.
+Operational notes for reproducing `SkillOps` from the public `SkillOps` repository.
 
-## What To Inspect First
+## Review Path
 
 - `skillops/`: Project-specific implementation subtree.
 - `examples/`: Small runnable examples and smoke-test entry points.
@@ -14,9 +14,9 @@ This guide maps the public `SkillOps` repository to a reviewer-friendly artifact
 - `requirements.txt`: Primary Python dependency list.
 - `pyproject.toml`: Package metadata and optional extras when available.
 
-## Minimal Verification
+## Smoke Checks
 
-Run these checks in a fresh environment before launching expensive jobs:
+Run these checks before long jobs:
 
 ```bash
 python -m compileall -q .
@@ -24,9 +24,9 @@ python -m pytest tests -q
 python tests/test_smoke.py
 ```
 
-## Reproduction And Analysis Entry Points
+## Reproduction Entry Points
 
-These are the main tracked files to inspect for paper-scale or benchmark-scale reproduction. Some require arguments, credentials, downloaded benchmarks, or local data paths described in the README.
+Main tracked entry points for paper-scale or benchmark-scale runs:
 
 - `python run_skillops.py`
 
@@ -34,14 +34,14 @@ These are the main tracked files to inspect for paper-scale or benchmark-scale r
 
 - `1.jpg`
 
-## Data, Credentials, And Generated Outputs
+## Data And Outputs
 
 - API-backed runs should read credentials from environment variables or local `.env` files only; never commit real keys or provider-specific secrets.
 - Record provider endpoint, model/deployment name, sampling parameters, and execution date for every API-backed table or figure.
 - Treat generated JSONL files, logs, caches, model checkpoints, and benchmark downloads as local artifacts unless explicitly tracked as fixtures.
 - For stochastic experiments, record seeds, task counts, dataset splits, and the exact git commit used for the run.
 
-## Reviewer Reporting Checklist
+## Reporting Checklist
 
 - `git rev-parse HEAD`
 - Python version and dependency-install command
